@@ -738,7 +738,7 @@ on ParseCsvFile(fileContents)
 	try
 		set parsedFileContents to {} --Instantiate our list to hold parsed file contents
 		set delimitersOnCall to AppleScript's text item delimiters --Copy the delimiters that are in place when this handler was called
-		set AppleScript's text item delimiters to "," --Set delimiter to commas
+		set AppleScript's text item delimiters to ";" --Set delimiter to semi colon
 		
 		--Parse each line (paragraph) from the unparsed file contents
 		set lineCount to (count of paragraphs in fileContents)

@@ -10,3 +10,5 @@ iTunes version: 12.1.0.50
 <strong>So far this is just a work in progress and should not be used just yet.</strong>
 
 <strong>HOW TO</strong>
+
+<strong>KNOWN BUGS</strong>
