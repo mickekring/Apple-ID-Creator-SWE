@@ -6,7 +6,7 @@ Please show your appreciation of the amount of work that has gone into this by m
 
 You use this script at your own risk. There are no warranties, direct or implied.
 
-<strong>TRIED AND TESTED SRETUP</strong><br />
+<strong>TRIED AND TESTED SETUP</strong><br />
 OSX version: Yosemite 10.10.2<br />
 iTunes version: 12.1.0.50
 
@@ -16,8 +16,8 @@ iTunes version: 12.1.0.50
 <ul>
 <li><strong>IMPORTANT:</strong> Apple uses a velocity check to prevent too many Apple IDs from a single IP address. You must contact your Apple business representative to request that your IP address is whitelisted for a short time.</li>
 <li>Being AppleScript, this runs only on Macs.</li>
-<li>iTunes 10.7 is currently required. Future versions may break the script.</li>
-<li>UI Scripting allows us to script otherwise non-scriptbale interfaces. Turn this on in System Preferences > Accessibility and check "Enable access for assistive devices."</li>
+<li>iTunes 12.1.0.50 is currently tried and tested on Yosemite 10.10.2. Future versions may break the script.</li>
+<li>UI Scripting allows us to script otherwise non-scriptbale interfaces. Read the popup window and follow instructions, when running the script.</li>
 <li>Apple has strong password requirements. Account creation will fail if the passwords are too weak.</li>
 </ul>
 
