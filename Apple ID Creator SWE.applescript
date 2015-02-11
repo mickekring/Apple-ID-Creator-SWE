@@ -1,60 +1,4 @@
-Ôªø--VERSION 1.2.0.16 see history at bottom of script 
-
-
-
---TO DO:
-
---write itunes running check
---write file output section for account status column
---write check for account status of "completed" or "skipped"
-
-
-
-
---start localization Country Code
---Set country code to adapt script, code according to http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
---Set iTunesCountryCode to your country code by removing the -- at the front of the iTunesCountryCode
-
-
---Supported Countries
---United States = USA  
---Poland  = POL  
---Great Britain GBR 
---Australia = AUS  
---New Zealand = NZL  
---Sweden = SWE  
---France = FRA  
---Canada = CAN  
---Fiji = FJI  
---Papua New Guinea = PNG  
---Solomon Islands = SLB  
---Germany = DEU  
---Netherlands = NPL  
---Finland = FIN 
---India = IND 
---Spain = ESP
-
-
-property iTunesCountryCode : "" --set for error trap set for those don't know they need to set the localisation, comment this one out when the locale is set
-
---property iTunesCountryCode : "USA"
---property iTunesCountryCode : "POL"
---property iTunesCountryCode : "GBR"
---property iTunesCountryCode : "AUS"
---property iTunesCountryCode : "NZL"
---property iTunesCountryCode : "SWE"
---property iTunesCountryCode : "FRA"
---property iTunesCountryCode : "CAN"
---property iTunesCountryCode : "FJI"
---property iTunesCountryCode : "PNG"
---property iTunesCountryCode : "SLB"
---property iTunesCountryCode : "DEU"
---property iTunesCountryCode : "NPL"
---property iTunesCountryCode : "FIN"
---property iTunesCountryCode : "IND"
---property iTunesCountryCode : "ESP"
-
---end Country Code
+property iTunesCountryCode : "SWE" --set for error trap set for those don't know they need to set the localisation, comment this one out when the locale is set
 
 --declare localisation variables here
 global ibooksLinkLocation
@@ -119,11 +63,11 @@ property processDelay : 1
 property checkFrequency : 0.5
 
 --Used to store supported iTunes versions
-property supportedItunesVersions : {"12.0.1"}
-property supportedOSVersions : {"10.10.1"}
+property supportedItunesVersions : {"12.1.0"}
+property supportedOSVersions : {"10.10.2"}
 
 --Used for checking if iTunes is loading a page
-property itunesAccessingString : "Accessing iTunes Store‚Ä¶"
+property itunesAccessingString : "Accessing iTunes Store…"
 
 --Used for error checking Page 1 if email address or password is rejected. Simply counts the elements and it the warning box pops up UI elements increase by one
 global elementCountDefault
@@ -136,185 +80,12 @@ set elementEmailCountDefault to 0
 
 --Start localistaion settings
 
---Error trap for those who haven't set the localisation, a bit nicer than just bailing out of the script
-
-if iTunesCountryCode is "" then
-	set scriptAction to button returned of (display dialog "Localisation has not been set, please set localisation at the top of the script by removing the -- infront of the property iTunesCountryCode you wish to use before re-running script" buttons {"Abort"} default button "Abort") as text
-	if scriptAction is "Abort" then return
-	
-end if
-
---localisation settings go in here, easier than having to scroll through the entire script to find them! You can cut any out that you don't need
-
-if iTunesCountryCode is "USA" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/us/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 1
-	set curDayPos to 2
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "City"
-	set curCityFieldPos to 1
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to true
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Zip"
-	set curPostalCodeFieldPos to 3
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "POL" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/pl/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Witamy w sklepie iTunes Store"
-	set curExpectedElementLocation to "Witamy w sklepie iTunes Store"
-	set curTermsExpectedElementString to "Warunki oraz Ochrona prywatno≈õci firmy Apple"
-	set curTermsExpectedElementLocation to "Warunki oraz Ochrona prywatno≈õci firmy Apple"
-	set curCheckBox to 1
-	set curCheckBoxNum to 6
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 12
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-
-if iTunesCountryCode is "AUS" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/au/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "City"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to true
-	set curStateGroup to 12
-	set curStatePos to 1
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 13
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "GBR" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/gb/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 6
-	set noOfResponses to 6
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 1
-	set curCityGroupPos to 11
-	set enableCounty to true
-	set curCountyPos to 12
-	set enableProvince to false
-	set enableState to false
-	set curStateGroup to 12
-	set curStatePos to 1
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 2
-	set curPostalCodeFieldGroup to 12
-	set curPhoneGroup to 13
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "NZL" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/nz/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "City"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 12
-	set enableProvince to false
-	set enableCounty to true
-	set curCountyPos to 11
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 12
-	set curPhoneGroup to 13
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
 if iTunesCountryCode is "SWE" then
 	set ibooksLinkLocation to "itms://itunes.apple.com/se/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Villkor och Apples policy f√∂r integritetsskydd"
-	set curTermsExpectedElementLocation to "Villkor och Apples policy f√∂r integritetsskydd"
+	set curExpectedElementString to "Välkommen till iTunes Store"
+	set curExpectedElementLocation to "Välkommen till iTunes Store"
+	set curTermsExpectedElementString to "Villkor och Apples integritetspolicy"
+	set curTermsExpectedElementLocation to "Villkor och Apples integritetspolicy"
 	set curCheckBox to 1
 	set curCheckBoxNum to 6
 	set noOfResponses to 5
@@ -341,336 +112,6 @@ if iTunesCountryCode is "SWE" then
 	set curPhonePos to 2
 end if
 
-if iTunesCountryCode is "FRA" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/fr/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 6
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to false
-	set curPhonePos to 1
-end if
-
-
-if iTunesCountryCode is "CAN" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/ca/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "City"
-	set curCityFieldPos to 1
-	set curCityGroupPos to 11
-	set enableProvince to true
-	set curProvincePos to 2
-	set curProvinceGroup to 11
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 3
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "FJI" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/fj/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 1
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to false
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 3
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to false
-	set curPhonePos to 1
-end if
-
-if iTunesCountryCode is "PNG" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/pg/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to false
-	set curTitlePos to 7
-	set curUserNameGroupPos to 8
-	set curAddressGroupPos to 9
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 1
-	set curCityGroupPos to 10
-	set enableProvince to true
-	set curProvinceGroup to 10
-	set curProvincePos to 3
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to false
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 2
-	set curPostalCodeFieldGroup to 10
-	set curPhoneGroup to 11
-	set curAreaCode to false
-	set curPhonePos to 1
-end if
-
-if iTunesCountryCode is "SLB" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/sb/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 6
-	set curUserNameGroupPos to 7
-	set curAddressGroupPos to 8
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 1
-	set curCityGroupPos to 10
-	set enableProvince to true
-	set curProvinceGroup to 9
-	set curProvincePos to 1
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to false
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 2
-	set curPostalCodeFieldGroup to 10
-	set curPhoneGroup to 10
-	set curAreaCode to false
-	set curPhonePos to 1
-end if
-
-if iTunesCountryCode is "DEU" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/de/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 6
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Zip"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "NPL" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/nl/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 6
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "FIN" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/fi/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "K√§ytt√∂ehdot ja Applen tietosuojak√§yt√§nt√∂"
-	set curTermsExpectedElementLocation to "K√§ytt√∂ehdot ja Applen tietosuojak√§yt√§nt√∂"
-	set curCheckBox to 1
-	set curCheckBoxNum to 6
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to false
-	set curTitlePos to 7
-	set curUserNameGroupPos to 8
-	set curAddressGroupPos to 9
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 10
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 2
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 10
-	set curPhoneGroup to 11
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "IND" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/in/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 5
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 1
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to false
-	set curStateGroup to 11
-	set curStatePos to 1
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 2
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 12
-	set curAreaCode to true
-	set curPhonePos to 2
-end if
-
-if iTunesCountryCode is "ESP" then
-	set ibooksLinkLocation to "itms://itunes.apple.com/es/app/ibooks/id364709193?mt=8"
-	set curExpectedElementString to "Welcome to the iTunes Store"
-	set curExpectedElementLocation to "Welcome to the iTunes Store"
-	set curTermsExpectedElementString to "Terms and Conditions and Apple Privacy Policy"
-	set curTermsExpectedElementLocation to "Terms and Conditions and Apple Privacy Policy"
-	set curCheckBox to 1
-	set curCheckBoxNum to 6
-	set noOfResponses to 5
-	set curMonthPos to 2
-	set curDayPos to 1
-	set enableTitle to true
-	set curTitlePos to 8
-	set curUserNameGroupPos to 9
-	set curAddressGroupPos to 10
-	set curCityFieldName to "Town"
-	set curCityFieldPos to 2
-	set curCityGroupPos to 11
-	set enableProvince to false
-	set enableCounty to false
-	set enableState to true
-	set curStateGroup to 12
-	set curStatePos to 1
-	set enablePostcode to true
-	set curPostalCodeFieldName to "Postcode"
-	set curPostalCodeFieldPos to 1
-	set curPostalCodeFieldGroup to 11
-	set curPhoneGroup to 13
-	set curAreaCode to false
-	set curPhonePos to 1
-end if
-
-
-
---end localization
 -- only functions below this point, and data for iTunes "Get" button
 
 (*
@@ -723,7 +164,7 @@ property accountStatusHeaders : {"Account Status"} --Used to keep track of what 
 
 --Supported descriptions of iTunes free button
 
-property supportedFreeButtonDescriptions : {"$0.00 Free, iBooks", "0,00¬†‚Ç¨ Free, iBooks", "Free, iBooks", "¬£0.00 Free, iBooks", "$0.00 Get, iBooks", "0,00¬†‚Ç¨ Get, iBooks", "¬£0.00 Get, iBooks", "Get, iBooks", "0,00 kr Get, iBooks", "USD 0.00 Get, iBooks", "‚Ç¨ 0,00¬†Get, iBooks", "‚Ç¨ 0,00¬†Download, iBooks", "$0.00 Download, iBooks", "¬£0.00 Download, iBooks", "‚Çπ 0 Get, iBooks"}
+property supportedFreeButtonDescriptions : {"Hämta, iBooks", "Hämta", "Get, iBooks", "Get, iBooks", "0,00 kr Get, iBooks", "0,00 kr Hämta, iBooks", "0,00 kr Hämta"}
 
 set userDroppedFile to false
 
@@ -1319,9 +760,6 @@ end ParseCsvFile
 on verifyPage(expectedElementString, expectedElementLocation, expectedElementCount, verificationTimeout, requiresGroup)
 	tell application "System Events"
 		--
-		repeat until description of scroll area 1 of window 1 of application process "iTunes" is "Apple logo"
-			delay (masterDelay * processDelay)
-		end repeat
 		
 		my GetItunesStatusUntillLcd("Does Not Match", itunesAccessingString, 4, "times. Check for:", (verificationTimeout * (1 / checkFrequency)), "intervals of", checkFrequency, "seconds")
 		(*repeat
@@ -1370,7 +808,7 @@ end verifyPage
 on CheckForErrors()
 	if scriptAction is "Continue" then --This is to make sure a previous abort hasn't already been thrown.
 		if errorList is not {} then --If there are errors in the list
-			tell application "AppleScript Editor" to activate
+			tell application "Script Editor" to activate
 			
 			set errorAction to button returned of (display dialog "Errors were detected. What would you like to do?" buttons {"Abort", "Review"} default button "Review") as string
 			
@@ -1406,18 +844,16 @@ on SignOutItunesAccount()
 			tell application "iTunes" to open location ibooksLinkLocation
 			delay masterDelay
 			
-			repeat until description of scroll area 1 of window 1 of application process "iTunes" is "Apple logo"
-				delay (masterDelay * processDelay)
-			end repeat
 			
-			set storeMenu to menu "Store" of menu bar item "Store" of menu bar 1 of application process "iTunes"
+			
+			set storeMenu to menu "Affär" of menu bar item "Affär" of menu bar 1 of application process "iTunes"
 			set storeMenuItems to title of every menu item of storeMenu
 		end tell
 		
 		repeat with loopCounter from 1 to (count of items in storeMenuItems)
-			if item loopCounter of storeMenuItems is "Sign Out" then
+			if item loopCounter of storeMenuItems is "Logga ut" then
 				tell application "System Events"
-					click menu item "Sign Out" of storeMenu
+					click menu item "Logga ut" of storeMenu
 				end tell
 			end if
 		end repeat
@@ -1523,7 +959,7 @@ on ClickCreateAppleIDButton()
 		--get value of static text 1 of window 1 of application process "iTunes" --should be equal to "Sign In to the iTunes Store"
 		tell application "System Events"
 			try
-				click button "Create Apple ID" of window 1 of application process "iTunes"
+				click button "Skapa Apple-ID" of window 1 of application process "iTunes"
 			on error
 				set errorList to errorList & "Unable to locate and click button ''Create Apple ID'' on ID sign-in window"
 			end try
@@ -1543,8 +979,8 @@ on ClickContinueOnPageOne()
 		
 		try
 			tell application "System Events"
-				set contButton to button "Continue" of UI element 1 of scroll area 1 of splitter group 1 of window 1 of application process "iTunes"
-				if title of contButton is "Continue" then
+				set contButton to button "Fortsätt" of UI element 1 of scroll area 1 of splitter group 1 of window 1 of application process "iTunes"
+				if title of contButton is "Fortsätt" then
 					click contButton
 				else
 					set errorList to errorList & "Unable to locate and click the Continue button on page ''Welcome to iTunes Store''."
@@ -1588,9 +1024,9 @@ on AgreeToTerms()
 			
 			if scriptAction is "Continue" then
 				try
-					set agreeButton to button "Agree" of UI element 1 of scroll area 1 of splitter group 1 of window 1 of application process "iTunes"
+					set agreeButton to button "Godkänn" of UI element 1 of scroll area 1 of splitter group 1 of window 1 of application process "iTunes"
 					set buttonVerification to title of agreeButton
-					if buttonVerification is "Agree" then
+					if buttonVerification is "Godkänn" then
 						click agreeButton
 					else
 						set errorList to errorList & "Unable to locate and click button ''Agree''."
@@ -1679,7 +1115,7 @@ end ClickThis
 
 on ProvideAppleIdDetails(appleIdEmail, appleIdPassword, appleIdSecretQuestion1, appleIdSecretAnswer1, appleIdSecretQuestion2, appleIdSecretAnswer2, appleIdSecretQuestion3, appleIdSecretAnswer3, rescueEmail, userBirthMonth, userBirthDay, userBirthYear)
 	if scriptAction is "Continue" then --This is to make sure an abort hasn't been thrown
-		set pageVerification to verifyPage("Provide Apple ID Details", "Provide Apple ID Details", 0, (netDelay * processDelay), false)
+		set pageVerification to verifyPage("Ange information om Apple-ID", "Ange information om Apple-ID", 0, (netDelay * processDelay), false)
 		if pageVerification is "Verified" then
 			tell application "System Events"
 				
@@ -1744,7 +1180,7 @@ on ProvideAppleIdDetails(appleIdEmail, appleIdPassword, appleIdSecretQuestion1, 
 				end if
 				
 				if scriptAction is "Continue" then
-					tell me to click button "Continue" of theForm
+					tell me to click button "Fortsätt" of theForm
 					
 					
 					delay 3 --Wait for page to respond to email address fail, this may need to be adjusted for slow connections
@@ -1782,7 +1218,7 @@ end ProvideAppleIdDetails
 
 on ProvidePaymentDetails(userFirstName, userLastName, addressStreet, addressCity, addressState, addressZip, phoneAreaCode, phoneNumber)
 	if scriptAction is "Continue" then --This is to make sure an abort hasn't been thrown
-		set pageVerification to verifyPage("Provide a Payment Method", "Provide a Payment Method", 0, (netDelay * processDelay), false)
+		set pageVerification to verifyPage("Ange ett betalningssätt", "Ange ett betalningssätt", 0, (netDelay * processDelay), false)
 		
 		
 		--Wait for the page to change after selecting payment type
