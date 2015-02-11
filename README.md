@@ -1,6 +1,10 @@
 Apple-ID-Creator-Sweden
 ==========================
 
-Universal Yosemite and iTunes 12.0
+This is a fork of garrya100's great script adapted and changed for use with the Swedish version of iTunes.
 
-This is a fork of garrya100 great script adapted for the Swedish iTunes version 12.0.1 running on OSX Yosemity 10.10. 
+OSX: Yosemite 10.10.2
+iTunes: 12.0.1
+
+
+ 
