@@ -10,8 +10,6 @@ You use this script at your own risk. There are no warranties, direct or implied
 OSX version: Yosemite 10.10.2<br />
 iTunes version: 12.1.0.50
 
-<strong>So far this is just a work in progress and should not be used just yet.</strong>
-
 <strong>REQUIREMENTS</strong>
 <ul>
 <li><strong>IMPORTANT:</strong> Apple uses a velocity check to prevent too many Apple IDs from a single IP address. You must contact your Apple business representative to request that your IP address is whitelisted for a short time.</li>
@@ -29,5 +27,5 @@ Save/export the file as a .csv file (comma separated). On OSX with swedish regio
 <li>Run the AppleScript and point to your .csv file when asked for. If the file is correct, sit back and enjoy.</li>
 </ul>
 
-<strong>KNOWN BUGS</strong>
+<strong>KNOWN BUGS</strong><br />
 Sometimes the script aborts. Just close iTunes and the script and start again. If some of the accounts have already been created, edit those out of your .csv file.
