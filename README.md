@@ -30,3 +30,4 @@ Save/export the file as a .csv file (comma separated). On OSX with swedish regio
 </ul>
 
 <strong>KNOWN BUGS</strong>
+Sometimes the script aborts. Just close iTunes and the script and start again. If some of the accounts have already been created, edit those out of your .csv file.
