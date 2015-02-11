@@ -1351,7 +1351,7 @@ on ProvidePaymentDetails(userFirstName, userLastName, addressStreet, addressCity
 			if dryRun is false then --Click the "Create Apple ID" button as long as we aren't in "Dry Run" mode
 				if scriptAction is "Continue" then --Continue as long as no errors occurred
 					try
-						click button "Create Apple ID" of theForm
+						click button "Skapa Apple-ID" of theForm
 					on error
 						set errorList to errorList & "Unable to click ''Create Apple ID'' button."
 					end try
