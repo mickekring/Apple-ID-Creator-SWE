@@ -63,7 +63,7 @@ property processDelay : 1
 property checkFrequency : 0.5
 
 --Used to store supported iTunes versions
-property supportedItunesVersions : {"12.1.0"}
+property supportedItunesVersions : {"12.1"}
 property supportedOSVersions : {"10.10.2"}
 
 --Used for checking if iTunes is loading a page
@@ -1368,64 +1368,3 @@ on ProvidePaymentDetails(userFirstName, userLastName, addressStreet, addressCity
 		end tell --End "System Events" tell
 	end if --End main error check IF
 end ProvidePaymentDetails
-
---Version Changes
---1.1.1.1 Original Fork of GBR version for iTunes 11.0 and below
-
---1.1.1.2 Added AUS localisation
-
---1.1.1.3 Added NZ localisation
-
---1.1.1.4 Added Month/Date localisation option
-
---1.1.2.0 Changed to support iTunes 12.0.1
-
---1.1.2.1 Added "Get" button descriptions
-
---1.1.2.2 Added routine for "Province"
-
---1.1.2.1 Added PNG localisation
-
---1.1.2.2 Added Postcode location routine
-
---1.1.3.0 Changes for Yosemite
-
---1.1.3.1 Added more "Get Button" decsriptions
-
---1.1.3.2 Consolidate all localisations into one codebase
-
---1.1.3.3 Added Title localisation, Title can now be set on or off as required
-
---1.2.0.0 Major code rewrite, added global variables at top of script, move all localisation settings to a single block per localisation at top of code to make them easier to find and modifiy, rewrite and add some new routines to allow localisation
-
---1.2.0.1 Changed supported iTunes version to 12.0.1 family only, as the element locations are different to the other iTunes families, will now display warning if run on any other versions.
-
---1.2.0.2 Remove redundant code and general code clean up
-
---1.2.0.3 Consolidate all known localisations, tested with iTunes stores in English, all OK, local language versions may need tweaking but at least there is a starting point
-
---1.2.0.4 Remove code where I was trying to support Mavericks and Yosemite (different element locations by one position), errors are not consistent, Mavericks version now forked off
-
---1.2.0.5 Added OS Check routine, script will now warn if OS Version not supported.
-
---1.2.0.6 Added error trap routine if location not set, script will now pop up dialogue "abort" box with a warning. Just behaves a little bit nicer for those who don't know they have to set the localisation
-
---1.2.0.7 Changed localisation settings for NZL to put "State" feild into "Suburb" Box on script
-
---1.2.0.8 Added routine to pop up dialogue box if csv file upload is cancelled, just nicer behavior then throwing an error for those who are not coders
-
---1.2.0.9 Clean up code and add comments to make it easier to follow
-
---1.2.0.10 Added donation nag....
-
---1.2.0.11 More code clean up. Fix commenting so it is consistant and easier to follow (I hope.....)
-
---1.2.0.12 Minor bugfix unexpected action after no locale set
-
---1.2.0.13 Added localisations for India and Spain. They may need tweaking as they were built for the 'English' versions of the Indian and Spanish iTunes stores
-
---1.2.0.14 Added routine to enable add sucessful OS to supported OS types
-
---1.2.0.15 Added error traping for when email and/or password is rejected, user can now be skipped or script aborted. Slightly complicated by the fact the the password is not verified by Apple till the continue button is clicked. If the network conection is slow the error will be "junped over" and the script will fail. The delay checking time may need to be increased.
-
---1.2.0.16 Bug fix in error trapping, wrong variable used (Thanks Johny)
