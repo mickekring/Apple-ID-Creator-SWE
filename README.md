@@ -6,26 +6,23 @@ Please show your appreciation of the amount of work that has gone into this by m
 
 You use this script at your own risk. There are no warranties, direct or implied.
 
-<strong>TRIED AND TESTED SETUP</strong><br />
+### TRIED AND TESTED SETUP
 OSX version: Yosemite 10.10.2<br />
 iTunes version: 12.1.0.50
 
-<strong>REQUIREMENTS</strong>
-<ul>
-<li><strong>IMPORTANT:</strong> Apple uses a velocity check to prevent too many Apple IDs from a single IP address. You must contact your Apple business representative to request that your IP address is whitelisted for a short time.</li>
-<li>Being AppleScript, this runs only on Macs.</li>
-<li>iTunes 12.1.0.50 is currently tried and tested on Yosemite 10.10.2. Future versions may break the script.</li>
-<li>UI Scripting allows us to script otherwise non-scriptbale interfaces. Read the popup window and follow instructions, when running the script.</li>
-<li>Apple has strong password requirements. Account creation will fail if the passwords are too weak.</li>
-</ul>
+### REQUIREMENTS
+- <strong>IMPORTANT:</strong> Apple uses a velocity check to prevent too many Apple IDs from a single IP address. You must contact your Apple business representative to request that your IP address is whitelisted for a short time.
+- Being AppleScript, this runs only on Macs.
+- iTunes 12.1.0.50 is currently tried and tested on Yosemite 10.10.2. Future versions may break the script.
+- UI Scripting allows us to script otherwise non-scriptbale interfaces. Read the popup window and follow instructions, when running the script.
+- Apple has strong password requirements. Account creation will fail if the passwords are too weak.
+- Since this involves international characters, be sure that your csv file handles å,ä and ö correctly.
 
-<strong>HOW TO</strong>
-<ul>
-<li>Download the zip file and extract to a location of your choice.</li>
-<li>Edit the UserID-template.xlsx file in Excel and add your desired account information. Leave the empty columns empty.</br>
-Save/export the file as a .csv file (comma separated). On OSX with swedish regional settings this will generate a semi colon separated text file.</li>
-<li>Run the AppleScript and point to your .csv file when asked for. If the file is correct, sit back and enjoy.</li>
-</ul>
+### HOW TO
+- Download the zip file and extract to a location of your choice.
+- Edit the UserID-template.xlsx file in Excel and add your desired account information. Leave the empty columns empty.</br>
+Save/export the file as a .csv file (comma separated). On OSX with swedish regional settings this will generate a semi colon separated text file.
+- Run the AppleScript and point to your .csv file when asked for. If the file is correct, sit back and enjoy.
 
-<strong>KNOWN BUGS</strong><br />
+### KNOWN BUGS
 Sometimes the script aborts. Just close iTunes and the script and start again. If some of the accounts have already been created, edit those out of your .csv file.
