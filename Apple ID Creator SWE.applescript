@@ -1218,7 +1218,7 @@ end ProvideAppleIdDetails
 
 on ProvidePaymentDetails(userFirstName, userLastName, addressStreet, addressCity, addressState, addressZip, phoneAreaCode, phoneNumber)
 	if scriptAction is "Continue" then --This is to make sure an abort hasn't been thrown
-		set pageVerification to verifyPage("Ange ett betalningssätt", "Ange ett betalningssätt", 0, (netDelay * processDelay), false)
+		set pageVerification to verifyPage("Ange en betalningsmetod", "Ange en betalningsmetod", 0, (netDelay * processDelay), false)
 		
 		
 		--Wait for the page to change after selecting payment type
