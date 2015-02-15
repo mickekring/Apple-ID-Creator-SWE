@@ -970,9 +970,7 @@ end ClickCreateAppleIDButton
 -----------------------------------------
 
 on ClickContinueOnPageOne()
-	delay (masterDelay * processDelay)
-	
-	
+	delay 5
 	set pageVerification to verifyPage(curExpectedElementString, curExpectedElementLocation, 7, netDelay, false) ----------Verify we are at page 1 of the Apple ID creation page
 	
 	if pageVerification is "verified" then
@@ -1113,6 +1111,7 @@ end ClickThis
 
 -----------------------------------------
 
+delay 2
 on ProvideAppleIdDetails(appleIdEmail, appleIdPassword, appleIdSecretQuestion1, appleIdSecretAnswer1, appleIdSecretQuestion2, appleIdSecretAnswer2, appleIdSecretQuestion3, appleIdSecretAnswer3, rescueEmail, userBirthMonth, userBirthDay, userBirthYear)
 	if scriptAction is "Continue" then --This is to make sure an abort hasn't been thrown
 		set pageVerification to verifyPage("Ange information om Apple-ID", "Ange information om Apple-ID", 0, (netDelay * processDelay), false)
