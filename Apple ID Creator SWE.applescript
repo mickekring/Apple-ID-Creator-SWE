@@ -57,14 +57,14 @@ property masterDelay : 1
 property netDelay : 30
 
 --Used at locations in script that will be vulnerable to slow processing. Multiplied by master delay. Tweak for slow machines. May be added to Net Delay.
-property processDelay : 1
+property processDelay : 5
 
 --How often should the script check that something has loaded/is ready
-property checkFrequency : 0.5
+property checkFrequency : 1
 
 --Used to store supported iTunes versions
-property supportedItunesVersions : {"12.1"}
-property supportedOSVersions : {"10.10.2"}
+property supportedItunesVersions : {"12.2.2"}
+property supportedOSVersions : {"10.10.5"}
 
 --Used for checking if iTunes is loading a page
 property itunesAccessingString : "Accessing iTunes Store…"
@@ -183,8 +183,6 @@ MainMagic(userDroppedFile, droppedFile)
 on MainMagic(userDroppedFile, droppedFile)
 	
 	--Donation Nag, maybe I can encourage a little good in the world!
-	
-	set scriptAction to button returned of (display dialog "This script is donation ware. If you use this script, consider the many hours of work contributed by many people. " & return & return & "Show your appreciation by making a donation to a charity of your choice" buttons {"Continue"} default button "Continue") as text
 	
 	--Check OS Version
 	
@@ -1111,7 +1109,7 @@ end ClickThis
 
 -----------------------------------------
 
-delay 2
+delay 5
 on ProvideAppleIdDetails(appleIdEmail, appleIdPassword, appleIdSecretQuestion1, appleIdSecretAnswer1, appleIdSecretQuestion2, appleIdSecretAnswer2, appleIdSecretQuestion3, appleIdSecretAnswer3, rescueEmail, userBirthMonth, userBirthDay, userBirthYear)
 	if scriptAction is "Continue" then --This is to make sure an abort hasn't been thrown
 		set pageVerification to verifyPage("Ange information om Apple-ID", "Ange information om Apple-ID", 0, (netDelay * processDelay), false)
