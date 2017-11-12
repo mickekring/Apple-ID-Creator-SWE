@@ -57,13 +57,13 @@ property masterDelay : 1
 property netDelay : 30
 
 --Used at locations in script that will be vulnerable to slow processing. Multiplied by master delay. Tweak for slow machines. May be added to Net Delay.
-property processDelay : 5
+property processDelay : 2
 
 --How often should the script check that something has loaded/is ready
 property checkFrequency : 1
 
 --Used to store supported iTunes versions
-property supportedItunesVersions : {"12.2.2"}
+property supportedItunesVersions : {"12.3"}
 property supportedOSVersions : {"10.10.5"}
 
 --Used for checking if iTunes is loading a page
