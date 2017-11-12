@@ -1,6 +1,10 @@
 Apple-ID-Creator-Sweden
 ==========================
 
+### UPDATE: Nov 12, 2017 - No support on this project
+I haven't used this since 2015 which means I haven't updated it either. I'll let it live here for a while longer though...
+
+
 This is a fork of garrya100's great script adapted and changed for use with the Swedish version of iTunes.<br />
 Please show your appreciation of the amount of work that has gone into this by making a donation to a charity of your choice.
 
